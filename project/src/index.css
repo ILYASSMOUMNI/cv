@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 /* ============================================================
-   KEYFRAME DEFINITIONS (must be at top level, not inside @layer)
+   KEYFRAME DEFINITIONS
    ============================================================ */
 
 @keyframes blink {
@@ -27,7 +27,7 @@
 }
 
 /* ============================================================
-   GLOBAL BASE STYLES
+   GLOBAL BASE STYLES — Dark Matter theme
    ============================================================ */
 
 @layer base {
@@ -37,15 +37,18 @@
   }
 
   body {
-    background-color: #030712;
+    background-color: #000005;
+    color: #e8e0ff;
     overflow-x: hidden;
+    font-weight: 500;
   }
 
+  /* Scrollbar */
   ::-webkit-scrollbar { width: 5px; }
-  ::-webkit-scrollbar-track { background: #030712; }
-  ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
-  ::-webkit-scrollbar-thumb:hover { background: #334155; }
-  ::selection { background: rgba(99, 102, 241, 0.3); color: #fff; }
+  ::-webkit-scrollbar-track { background: #07021a; }
+  ::-webkit-scrollbar-thumb { background: #2d1a7a; border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: #00aaff; }
+  ::selection { background: rgba(0, 170, 255, 0.25); color: #e8e0ff; }
 }
 
 /* ============================================================
@@ -71,5 +74,18 @@
 
   .animation-delay-2000 {
     animation-delay: 2s;
+  }
+
+  /* Glass card — dark matter flavour */
+  .dm-glass {
+    background: rgba(13, 5, 48, 0.55);
+    border: 1px solid rgba(45, 26, 122, 0.6);
+    backdrop-filter: blur(16px) saturate(1.6);
+  }
+
+  .dm-glass-hover:hover {
+    background: rgba(13, 5, 48, 0.75);
+    border-color: rgba(0, 170, 255, 0.35);
+    box-shadow: 0 0 24px rgba(0, 170, 255, 0.1), 0 8px 32px rgba(0,0,0,0.5);
   }
 }

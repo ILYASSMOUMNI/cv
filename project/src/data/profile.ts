@@ -4,38 +4,33 @@
 // ============================================================
 
 export const profile = {
-  name: "Ilyass Moumni",
-  displayName: "Ilyass Moumni",
-  title: "Full-Stack Engineer & AI Enthusiast",
+  name: "Iliass Moumni",
+  displayName: "Iliass Moumni",
+  title: "Data Analyst",
   taglines: [
-    "Building intelligent systems.",
+    "Turning data into decisions.",
+    "Building algorithmic trading systems.",
     "Crafting data-driven solutions.",
-    "Engineering the future of AI.",
-    "Turning ideas into scalable products.",
+    "Engineering quantitative insights.",
   ],
   email: "moumniilyas6@gmail.com",
+  phone: "+212 655-739-987",
   location: "Morocco",
   timezone: "GMT+1",
   avatarUrl: "https://avatars.githubusercontent.com/u/115355716?v=4",
   githubUrl: "https://github.com/ILYASSMOUMNI",
-  linkedinUrl: "https://www.linkedin.com/in/ilyass-moumni-251216229/",
-  resumeUrl: "/resume.pdf",
+  linkedinUrl: "https://www.linkedin.com/in/ilyas-moumni-b481102a8/",
+  resumeUrl: "/CV_Ilyass_Moumni.pdf",
 
-  // AI-enhanced bio from LinkedIn narrative
-  bio: `I'm a software engineer at the intersection of full-stack development,
-  data engineering, and algorithmic trading systems. With a strong foundation
-  in Java, Python, and modern web technologies, I build end-to-end solutions
-  that are both technically rigorous and product-minded.
+  bio: `4th-year Software Engineering student (Big Data & AI specialization), passionate about quantitative analysis, data engineering, and financial markets.
 
-  My work spans enterprise backends with Spring Boot, intelligent data pipelines,
-  and quantitative trading tools — always driven by clean architecture and an
-  obsession with performance. I believe great software isn't just about code;
-  it's about solving real problems at scale.`,
+  I build algorithmic trading systems, data pipelines, and performance analytics platforms — combining a solid algorithmic foundation with hands-on experience in Python, Pandas, and SQL.
+
+  My work spans automated trading bots on MetaTrader 5, quantitative analytics dashboards, and computer vision applications — always driven by clean architecture and rigorous data thinking.`,
 
   shortBio:
-    "Software engineer specializing in full-stack development, AI systems, and data engineering. I build things that matter.",
+    "Data Analyst & Software Engineering student specializing in quantitative analysis, algorithmic trading, and data engineering.",
 
-  // GitHub stats (fetched from API)
   github: {
     username: "ILYASSMOUMNI",
     publicRepos: 8,
@@ -44,20 +39,18 @@ export const profile = {
     joinedYear: 2022,
   },
 
-  // Personality traits for personal brand
   traits: [
+    { label: "Data Analyst", icon: "📈" },
+    { label: "Data Engineer", icon: "🔧" },
+    { label: "Algo Trader", icon: "💹" },
     { label: "Problem Solver", icon: "🧩" },
-    { label: "System Thinker", icon: "🏗️" },
-    { label: "Data Enthusiast", icon: "📊" },
-    { label: "Clean Code Advocate", icon: "✨" },
   ],
 
-  // Stats displayed in hero/dashboard
   stats: [
     { label: "Projects Built", value: "8+" },
     { label: "Technologies", value: "15+" },
+    { label: "Certifications", value: "14+" },
     { label: "Years Coding", value: "3+" },
-    { label: "Certifications", value: "5+" },
   ],
 };
 

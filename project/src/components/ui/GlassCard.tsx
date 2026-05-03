@@ -7,8 +7,8 @@ interface GlassCardProps {
   className?: string;
   hover?: boolean;
   onClick?: () => void;
-  gradient?: string; // e.g. "from-blue-500 to-violet-600"
-  glowColor?: string; // e.g. "blue"
+  gradient?: string;
+  glowColor?: string;
 }
 
 export const GlassCard: React.FC<GlassCardProps> = ({
@@ -20,12 +20,16 @@ export const GlassCard: React.FC<GlassCardProps> = ({
   glowColor,
 }) => {
   const glowStyles: Record<string, string> = {
-    blue: "hover:shadow-blue-500/20",
-    violet: "hover:shadow-violet-500/20",
-    emerald: "hover:shadow-emerald-500/20",
-    pink: "hover:shadow-pink-500/20",
-    orange: "hover:shadow-orange-500/20",
-    indigo: "hover:shadow-indigo-500/20",
+    blue:    "hover:shadow-[0_0_30px_rgba(0,170,255,0.18)]",
+    cyan:    "hover:shadow-[0_0_30px_rgba(0,170,255,0.18)]",
+    violet:  "hover:shadow-[0_0_30px_rgba(204,68,255,0.18)]",
+    purple:  "hover:shadow-[0_0_30px_rgba(204,68,255,0.18)]",
+    emerald: "hover:shadow-[0_0_30px_rgba(0,255,157,0.15)]",
+    pink:    "hover:shadow-[0_0_30px_rgba(204,68,255,0.18)]",
+    orange:  "hover:shadow-[0_0_30px_rgba(0,170,255,0.15)]",
+    indigo:  "hover:shadow-[0_0_30px_rgba(204,68,255,0.18)]",
+    amber:   "hover:shadow-[0_0_30px_rgba(0,170,255,0.15)]",
+    stone:   "hover:shadow-[0_0_30px_rgba(0,170,255,0.12)]",
   };
 
   const glow = glowColor ? glowStyles[glowColor] ?? "" : "";
@@ -34,9 +38,9 @@ export const GlassCard: React.FC<GlassCardProps> = ({
     <motion.div
       onClick={onClick}
       className={cn(
-        "relative rounded-2xl border border-white/[0.08] bg-white/[0.03] backdrop-blur-sm",
+        "relative rounded-2xl border border-dm-border bg-dm-card/60 backdrop-blur-md",
         "transition-all duration-300",
-        hover && `hover:border-white/[0.15] hover:bg-white/[0.06] hover:shadow-xl ${glow}`,
+        hover && `hover:border-dm-cyan/30 hover:bg-dm-card/80 ${glow}`,
         onClick && "cursor-pointer",
         className
       )}
@@ -46,7 +50,7 @@ export const GlassCard: React.FC<GlassCardProps> = ({
       {gradient && (
         <div
           className={cn(
-            "absolute inset-0 rounded-2xl opacity-5 bg-gradient-to-br",
+            "absolute inset-0 rounded-2xl opacity-[0.08] bg-gradient-to-br",
             gradient
           )}
         />
@@ -56,7 +60,6 @@ export const GlassCard: React.FC<GlassCardProps> = ({
   );
 };
 
-// Minimal badge component
 interface BadgeProps {
   children: React.ReactNode;
   variant?: "default" | "primary" | "success" | "warning" | "danger" | "glass";
@@ -71,12 +74,12 @@ export const Badge: React.FC<BadgeProps> = ({
   className = "",
 }) => {
   const variants = {
-    default: "bg-white/[0.08] text-slate-300 border-white/[0.1]",
-    primary: "bg-indigo-500/20 text-indigo-300 border-indigo-500/30",
-    success: "bg-emerald-500/20 text-emerald-300 border-emerald-500/30",
-    warning: "bg-amber-500/20 text-amber-300 border-amber-500/30",
-    danger: "bg-red-500/20 text-red-300 border-red-500/30",
-    glass: "bg-white/[0.05] text-slate-400 border-white/[0.08] backdrop-blur-sm",
+    default: "bg-dm-surface text-dm-text-dim border-dm-border",
+    primary: "bg-dm-cyan/10 text-dm-cyan border-dm-cyan/30",
+    success: "bg-emerald-950/60 text-emerald-400 border-emerald-700/40",
+    warning: "bg-amber-950/60 text-amber-400 border-amber-700/40",
+    danger:  "bg-red-950/60 text-red-400 border-red-700/40",
+    glass:   "bg-dm-surface/60 text-dm-text-dim border-dm-border",
   };
 
   const sizes = {
@@ -98,7 +101,6 @@ export const Badge: React.FC<BadgeProps> = ({
   );
 };
 
-// Gradient text component
 interface GradientTextProps {
   children: React.ReactNode;
   className?: string;
@@ -108,7 +110,7 @@ interface GradientTextProps {
 export const GradientText: React.FC<GradientTextProps> = ({
   children,
   className = "",
-  gradient = "from-indigo-400 via-violet-400 to-purple-400",
+  gradient = "from-dm-cyan via-dm-purple to-dm-cyan",
 }) => (
   <span
     className={cn(
@@ -121,7 +123,6 @@ export const GradientText: React.FC<GradientTextProps> = ({
   </span>
 );
 
-// Section header component
 interface SectionHeaderProps {
   tag?: string;
   title: string | React.ReactNode;
@@ -143,18 +144,18 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
           centered && "justify-center w-full"
         )}
       >
-        <span className="h-px w-8 bg-gradient-to-r from-transparent to-indigo-500" />
-        <span className="text-indigo-400 font-mono text-sm tracking-widest uppercase">
+        <span className="h-px w-8 bg-gradient-to-r from-transparent to-dm-cyan" />
+        <span className="text-dm-cyan font-mono text-sm tracking-widest uppercase">
           {tag}
         </span>
-        <span className="h-px w-8 bg-gradient-to-l from-transparent to-indigo-500" />
+        <span className="h-px w-8 bg-gradient-to-l from-transparent to-dm-cyan" />
       </div>
     )}
-    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
+    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-dm-text mb-4 leading-tight">
       {title}
     </h2>
     {subtitle && (
-      <p className="text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
+      <p className="text-lg text-dm-text-dim max-w-2xl mx-auto leading-relaxed">
         {subtitle}
       </p>
     )}

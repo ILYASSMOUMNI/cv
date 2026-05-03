@@ -40,7 +40,7 @@ const Header: React.FC = () => {
             <h1 className="text-xl font-mono font-bold text-white">
               Iliass Moumni
             </h1>
-            <p className="text-sm text-slate-400 font-mono">Software Engineer</p>
+            <p className="text-sm text-slate-400 font-mono">Data Analyst</p>
           </div>
 
           {/* Desktop Navigation */}

@@ -21,21 +21,51 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: 1,
-    slug: "trading-journal",
-    title: "Trading Journal",
+    slug: "quantcoreai",
+    title: "QuantCoreAI",
     description:
-      "Algorithmic trading analysis tool built in Python for tracking, visualizing, and evaluating trading performance with real-time data feeds.",
+      "Automated algorithmic trading bot on XAUUSD (M5) connected to MetaTrader 5 via official API, with technical strategies, dynamic risk management, and 24/7 Azure VM deployment.",
     longDescription:
-      "A quantitative trading journal that aggregates trade history, computes risk metrics (Sharpe ratio, max drawdown, win rate), and visualizes PnL curves. Built to support systematic strategy evaluation for algorithmic traders.",
-    technologies: ["Python", "Pandas", "Matplotlib", "NumPy", "CSV/API"],
+      "Designed a fully automated trading bot on XAUUSD (M5) implementing technical strategies: Engulfing Wick Touch, EMA filters, pivot points, and session-based logic. Features dynamic SL/TP based on ATR, trailing stop, break-even automation, and percentage-based position sizing. Includes a high-fidelity backtesting engine (M5 simulation) deployed on Azure VM for continuous 24/7 execution.",
+    technologies: ["Python", "MetaTrader5 API", "Pandas", "NumPy", "Azure"],
     category: "data",
-    githubUrl: "https://github.com/ILYASSMOUMNI/trading-journal",
+    githubUrl: "https://github.com/ILYASSMOUMNI/quantcoreai",
     featured: true,
-    highlight: "Quantitative finance + data analytics",
-    color: "from-emerald-500 to-teal-600",
+    highlight: "Algorithmic trading bot running 24/7 on Azure",
+    color: "from-yellow-500 to-amber-600",
   },
   {
     id: 2,
+    slug: "trading-journal",
+    title: "Quantitative Analytics Platform",
+    description:
+      "Trading analytics engine computing Sharpe ratio, max drawdown, win rate, and cumulative PnL curves — with interactive Matplotlib dashboards for real-time risk monitoring.",
+    longDescription:
+      "Built a quantitative trading performance engine with full data pipelines: CSV/API ingestion → cleaning → aggregation → visualization over thousands of records. Computes Sharpe ratio, max drawdown, win rate, and cumulative PnL. Includes an interactive Matplotlib dashboard for near-real-time risk metric tracking.",
+    technologies: ["Python", "Pandas", "NumPy", "Matplotlib", "CSV/API"],
+    category: "data",
+    githubUrl: "https://github.com/ILYASSMOUMNI/trading-journal",
+    featured: true,
+    highlight: "End-to-end quant analytics pipeline",
+    color: "from-emerald-500 to-teal-600",
+  },
+  {
+    id: 3,
+    slug: "ramadania",
+    title: "Ramadania — Visual Recognition App",
+    description:
+      "Hackathon project (3 days): Computer vision app scanning Moroccan historical monuments and artisanal products in real time with contextual info display.",
+    longDescription:
+      "Built in 3 days during a hackathon: a real-time visual recognition application using computer vision to identify and classify Moroccan historical monuments and artisanal products via camera. Implemented an object detection model (TensorFlow/OpenCV) with dynamic display of contextual info (history, description, product origin) after detection.",
+    technologies: ["Python", "TensorFlow", "OpenCV", "Computer Vision", "Flask"],
+    category: "data",
+    githubUrl: "https://github.com/ILYASSMOUMNI/ramadania",
+    featured: true,
+    highlight: "Real-time CV object detection — built in 3 days",
+    color: "from-violet-600 to-purple-700",
+  },
+  {
+    id: 4,
     slug: "e-commerce-platform",
     title: "E-Commerce Platform",
     description:
@@ -45,12 +75,12 @@ export const projects: Project[] = [
     technologies: ["Java", "Spring Boot", "MySQL", "Thymeleaf", "Maven", "JPA"],
     category: "fullstack",
     githubUrl: "https://github.com/ILYASSMOUMNI/e-com",
-    featured: true,
+    featured: false,
     highlight: "Enterprise-grade Spring Boot architecture",
-    color: "from-blue-500 to-indigo-600",
+    color: "from-amber-600 to-amber-800",
   },
   {
-    id: 3,
+    id: 5,
     slug: "airport-management",
     title: "Airport Management System",
     description:
@@ -60,39 +90,9 @@ export const projects: Project[] = [
     technologies: ["C#", ".NET", "WinForms", "SQL Server", "OOP"],
     category: "systems",
     githubUrl: "https://github.com/ILYASSMOUMNI/aeroport",
-    featured: true,
+    featured: false,
     highlight: "Complex domain modeling & OOP",
-    color: "from-violet-500 to-purple-600",
-  },
-  {
-    id: 4,
-    slug: "weather-app",
-    title: "Weather Application",
-    description:
-      "Real-time weather application with REST API integration, location-based forecasts, and responsive UI built in Java.",
-    longDescription:
-      "Weather app consuming third-party weather APIs with location detection, 7-day forecasts, and interactive weather maps. Focuses on API integration patterns and clean UI design.",
-    technologies: ["Java", "REST API", "JSON", "Android/UI"],
-    category: "frontend",
-    githubUrl: "https://github.com/ILYASSMOUMNI/weather-app",
-    featured: false,
-    highlight: "API integration & real-time data",
-    color: "from-sky-500 to-blue-600",
-  },
-  {
-    id: 5,
-    slug: "recipe-management",
-    title: "Recipe Management System",
-    description:
-      "Collaborative recipe platform with user authentication, CRUD operations, and AJAX-powered dynamic UI.",
-    longDescription:
-      "Full-stack recipe management application with PHP backend, MySQL database, and AJAX for seamless user interactions. Features user authentication, recipe CRUD, search/filter, and image uploads.",
-    technologies: ["HTML", "CSS", "JavaScript", "PHP", "MySQL", "AJAX"],
-    category: "fullstack",
-    githubUrl: "https://github.com/ILYASSMOUMNI/fluffy-octo-rotary-kitchen",
-    featured: false,
-    highlight: "AJAX-powered collaborative platform",
-    color: "from-orange-500 to-amber-600",
+    color: "from-amber-700 to-stone-700",
   },
   {
     id: 6,

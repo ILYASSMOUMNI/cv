@@ -4,7 +4,22 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: '#030712',
+        // Dark Matter palette
+        dm: {
+          bg:        '#000005',
+          surface:   '#07021a',
+          card:      '#0d0530',
+          border:    '#1a0f4a',
+          'border-bright': '#2d1a7a',
+          cyan:      '#00aaff',
+          'cyan-dim':'#0066cc',
+          purple:    '#cc44ff',
+          'purple-dim': '#7722cc',
+          text:      '#e8e0ff',
+          'text-dim':'#8878b8',
+          'text-muted': '#4a3f78',
+          emerald:   '#00ff9d',
+        },
       },
       fontFamily: {
         mono: ['JetBrains Mono', 'Fira Code', 'Cascadia Code', 'monospace'],

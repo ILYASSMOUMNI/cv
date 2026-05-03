@@ -22,7 +22,6 @@ const Header: React.FC = () => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
 
-      // Track active section
       const sections = navItems.map((item) => ({
         id: item.id,
         el: document.getElementById(item.id),
@@ -44,8 +43,7 @@ const Header: React.FC = () => {
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
-      const offset = 80;
-      const top = el.getBoundingClientRect().top + window.scrollY - offset;
+      const top = el.getBoundingClientRect().top + window.scrollY - 80;
       window.scrollTo({ top, behavior: "smooth" });
     }
     setIsMenuOpen(false);
@@ -59,7 +57,7 @@ const Header: React.FC = () => {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
         scrolled
-          ? "bg-[#030712]/80 backdrop-blur-xl border-b border-white/[0.06] shadow-2xl shadow-black/20"
+          ? "bg-dm-bg/80 backdrop-blur-xl border-b border-dm-border shadow-[0_1px_0_rgba(0,170,255,0.08)]"
           : "bg-transparent"
       )}
     >
@@ -72,15 +70,15 @@ const Header: React.FC = () => {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center">
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-dm-cyan to-dm-purple flex items-center justify-center shadow-[0_0_12px_rgba(0,170,255,0.4)]">
               <Code2 size={16} className="text-white" />
             </div>
             <div className="hidden sm:block">
-              <span className="text-white font-bold text-sm font-mono tracking-tight">
+              <span className="text-dm-text font-bold text-sm font-mono tracking-tight">
                 {profile.name}
               </span>
-              <p className="text-slate-500 text-xs font-mono leading-none mt-0.5">
-                Software Engineer
+              <p className="text-dm-text-dim text-xs font-mono leading-none mt-0.5">
+                Data Analyst
               </p>
             </div>
           </motion.button>
@@ -94,14 +92,14 @@ const Header: React.FC = () => {
                 className={cn(
                   "relative px-4 py-2 rounded-lg font-mono text-sm transition-colors duration-200",
                   activeSection === item.id
-                    ? "text-white"
-                    : "text-slate-400 hover:text-white"
+                    ? "text-dm-cyan"
+                    : "text-dm-text-dim hover:text-dm-text"
                 )}
               >
                 {activeSection === item.id && (
                   <motion.div
                     layoutId="activeNav"
-                    className="absolute inset-0 rounded-lg bg-white/[0.08]"
+                    className="absolute inset-0 rounded-lg bg-dm-cyan/10 border border-dm-cyan/20"
                     transition={{ type: "spring", stiffness: 400, damping: 30 }}
                   />
                 )}
@@ -116,7 +114,7 @@ const Header: React.FC = () => {
               href={profile.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate-400 hover:text-white transition-colors duration-200 p-2 rounded-lg hover:bg-white/[0.05]"
+              className="text-dm-text-dim hover:text-dm-cyan transition-colors duration-200 p-2 rounded-lg hover:bg-dm-cyan/10"
               aria-label="GitHub"
             >
               <Github size={18} />
@@ -125,7 +123,7 @@ const Header: React.FC = () => {
               href={profile.linkedinUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate-400 hover:text-white transition-colors duration-200 p-2 rounded-lg hover:bg-white/[0.05]"
+              className="text-dm-text-dim hover:text-dm-cyan transition-colors duration-200 p-2 rounded-lg hover:bg-dm-cyan/10"
               aria-label="LinkedIn"
             >
               <Linkedin size={18} />
@@ -134,7 +132,7 @@ const Header: React.FC = () => {
               onClick={() => scrollTo("contact")}
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
-              className="ml-1 px-4 py-2 rounded-lg bg-gradient-to-r from-indigo-500 to-violet-600 text-white text-sm font-medium font-mono hover:shadow-lg hover:shadow-indigo-500/25 transition-shadow duration-300"
+              className="ml-1 px-4 py-2 rounded-lg bg-gradient-to-r from-dm-cyan to-dm-purple text-white text-sm font-medium font-mono hover:shadow-[0_0_20px_rgba(0,170,255,0.35)] transition-shadow duration-300"
             >
               Hire me
             </motion.button>
@@ -143,28 +141,16 @@ const Header: React.FC = () => {
           {/* Mobile menu button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden text-slate-300 hover:text-white p-2 rounded-lg hover:bg-white/[0.05] transition-colors"
+            className="md:hidden text-dm-text-dim hover:text-dm-text p-2 rounded-lg hover:bg-dm-card transition-colors"
             aria-label="Toggle menu"
           >
             <AnimatePresence mode="wait">
               {isMenuOpen ? (
-                <motion.div
-                  key="close"
-                  initial={{ rotate: -90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: 90, opacity: 0 }}
-                  transition={{ duration: 0.15 }}
-                >
+                <motion.div key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.15 }}>
                   <X size={22} />
                 </motion.div>
               ) : (
-                <motion.div
-                  key="menu"
-                  initial={{ rotate: 90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: -90, opacity: 0 }}
-                  transition={{ duration: 0.15 }}
-                >
+                <motion.div key="menu" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.15 }}>
                   <Menu size={22} />
                 </motion.div>
               )}
@@ -183,7 +169,7 @@ const Header: React.FC = () => {
             transition={{ duration: 0.25, ease: "easeInOut" }}
             className="md:hidden overflow-hidden"
           >
-            <div className="bg-[#030712]/95 backdrop-blur-xl border-t border-white/[0.06] px-4 py-4">
+            <div className="bg-dm-bg/95 backdrop-blur-xl border-t border-dm-border px-4 py-4">
               <nav className="flex flex-col gap-1 mb-4">
                 {navItems.map((item, i) => (
                   <motion.button
@@ -195,35 +181,22 @@ const Header: React.FC = () => {
                     className={cn(
                       "text-left px-4 py-3 rounded-xl font-mono text-sm transition-colors duration-200",
                       activeSection === item.id
-                        ? "bg-white/[0.08] text-white"
-                        : "text-slate-400 hover:text-white hover:bg-white/[0.04]"
+                        ? "bg-dm-cyan/10 text-dm-cyan border border-dm-cyan/20"
+                        : "text-dm-text-dim hover:text-dm-text hover:bg-dm-card"
                     )}
                   >
                     {item.label}
                   </motion.button>
                 ))}
               </nav>
-              <div className="flex items-center gap-3 pt-4 border-t border-white/[0.06]">
-                <a
-                  href={profile.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-slate-400 hover:text-white p-2 rounded-lg hover:bg-white/[0.05] transition-colors"
-                >
+              <div className="flex items-center gap-3 pt-4 border-t border-dm-border">
+                <a href={profile.githubUrl} target="_blank" rel="noopener noreferrer" className="text-dm-text-dim hover:text-dm-cyan p-2 rounded-lg hover:bg-dm-card transition-colors">
                   <Github size={20} />
                 </a>
-                <a
-                  href={profile.linkedinUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-slate-400 hover:text-white p-2 rounded-lg hover:bg-white/[0.05] transition-colors"
-                >
+                <a href={profile.linkedinUrl} target="_blank" rel="noopener noreferrer" className="text-dm-text-dim hover:text-dm-cyan p-2 rounded-lg hover:bg-dm-card transition-colors">
                   <Linkedin size={20} />
                 </a>
-                <button
-                  onClick={() => scrollTo("contact")}
-                  className="ml-auto px-4 py-2 rounded-lg bg-gradient-to-r from-indigo-500 to-violet-600 text-white text-sm font-medium font-mono"
-                >
+                <button onClick={() => scrollTo("contact")} className="ml-auto px-4 py-2 rounded-lg bg-gradient-to-r from-dm-cyan to-dm-purple text-white text-sm font-medium font-mono">
                   Hire me
                 </button>
               </div>

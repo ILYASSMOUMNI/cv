@@ -8,21 +8,25 @@ import Projects from "./components/sections/Projects";
 import Experience from "./components/sections/Experience";
 import Dashboard from "./components/sections/Dashboard";
 import Contact from "./components/sections/Contact";
+import DarkMatterBackground from "./components/ui/DarkMatterBackground";
 
 function App() {
   return (
-    <div className="min-h-screen bg-[#030712] text-white antialiased">
-      <Header />
-      <main>
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Experience />
-        <Dashboard />
-        <Contact />
-      </main>
-      <Footer />
+    <div className="relative min-h-screen text-dm-text antialiased" style={{ background: "transparent" }}>
+      <DarkMatterBackground />
+      <div className="relative z-10">
+        <Header />
+        <main>
+          <Hero />
+          <About />
+          <Skills />
+          <Projects />
+          <Experience />
+          <Dashboard />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
     </div>
   );
 }
